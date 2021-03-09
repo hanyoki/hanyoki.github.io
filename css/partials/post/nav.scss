@@ -1,0 +1,36 @@
+#article-nav{
+  border-top:1px dotted #ddd;
+  padding:10px 0 20px;
+  @media screen and (max-width:980px){
+    font-size:.12rem;
+    line-height:.25rem;
+  }
+  &>a{
+    display:block;
+    strong{
+      display:block;
+      font-weight:normal;
+      color:#cfcfcf;
+    }
+    div{
+      color:#999;
+      line-height:30px;
+      @include transition(all,.5s);
+      &:hover{
+        color:#333;
+      }
+    }
+    &#article-nav-newer{
+      float:left;
+      strong{
+        text-align:left;
+      }
+    }
+    &#article-nav-older{
+      float:right;
+      strong{
+        text-align:right;
+      }
+    }
+  }
+}

@@ -1,0 +1,56 @@
+@import 'public/base';
+@import 'public/public';
+@import 'thirdparty/algolia';
+#wrapper{
+  width:100%;
+  position:relative;
+  @include transition(all,.5s);
+  top:0;
+  left:0;
+}
+#left-information{
+  display:none;
+  &:checked+#wrapper{
+    position:absolute;
+    top:0;
+    left:2.75rem;
+    #main-right{
+      top:0;
+      left:0;
+      @include box-shadow(5px,0,25px,0px,#ddd);
+    }
+    &+label{
+      display:block;
+      width:1rem;
+      height:100%;
+      background:blue;
+      position:fixed;
+      opacity:0;
+      filter:alpha(opacity=0);
+      right:0;
+      top:0;
+      z-index: 3000;
+    }
+  }
+}
+#bgg{
+  position:absolute;
+  top:338px;
+  left:0;
+  width:100%;
+  height:235px;
+  background-color:$mainColor;
+  z-index:1;
+  background-image:url('../bg-grey.png');
+  background-repeat:repeat-x;
+  @media screen and (max-width:980px){
+    display:none;
+  }
+}
+@import 'partials/header';
+@import 'partials/logo';
+@import 'partials/main';
+@import 'page';
+@import 'partials/category';
+@import 'categories';
+@import 'partials/footer';

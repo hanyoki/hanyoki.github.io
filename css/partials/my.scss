@@ -1,0 +1,284 @@
+.my{
+  .my-information{
+    $my-img-wh:150px;
+    .my-img{
+      width:$my-img-wh;
+      height:$my-img-wh;
+      margin:0 auto;
+      position:relative;
+      @media screen and (max-width:980px){
+        width:1.5rem;
+        height:1.5rem;
+      }
+      img{
+        width:100%;
+        @include border-radius(50%);
+        @include box-shadow(0,0,1px,0,#999);
+        border:1px solid $mainColorRgba;
+      }
+      a{
+        $social-wh:40px;
+        @include border-radius(50%);
+        border:1px solid $mainColor;
+        display:block;
+        width:$social-wh;
+        height:$social-wh;
+        background-color:#fff;
+        color:$mainColor;
+        position:absolute;
+        bottom:0;
+        right:0;
+        @include transition(all,.5s);
+        @media screen and (max-width:980px){
+          width:.4rem;
+          height:.4rem;
+        }
+        &:hover{
+          @include transform(rotate(180deg));
+        }
+        $addwidth:2px;
+        $addbgcolor:$mainColor;
+        $addwh:$social-wh/3.5;
+        &:after{
+          content:'';
+          display:block;
+          position:absolute;
+          width:$addwh;
+          height:$addwidth;
+          background-color:$addbgcolor;
+          //bottom:0;
+          //right:0;
+          top:50%;
+          left:50%;
+          margin-top:-$addwidth/2;
+          margin-left:-$addwh/2;
+          @include border-radius($addwh/2);
+        }
+        &:before{
+          content:'';
+          display:block;
+          position:absolute;
+          width:$addwidth;
+          height:$addwh;
+          background-color:$addbgcolor;
+          //bottom:0;
+          //right:0;
+          top:50%;
+          left:50%;
+          margin-top:-$addwh/2;
+          margin-left:-$addwidth/2;
+          @include border-radius($addwh/2);
+        }
+      }
+    }
+    span{
+      display:block;
+      text-align:center;
+      line-height:30px;
+      margin-top:10px;
+      font-size:20px;
+      color:#333;
+    }
+    p{
+      text-align:center;
+      line-height:30px;
+      font-size:20px;
+      color:#555;
+      @media screen and (max-width:980px){
+        line-height:.3rem;
+        font-size:.2rem;
+      }
+    }
+  }
+  .my-social{
+    font-size:0px;
+    color:#999;
+    margin-left:10px;
+    margin-top:20px;
+    border-bottom:1px dotted #ccc;
+    a{
+      font-size:15px;
+      //margin-right:20px;
+      display:inline-block;
+      text-align:left;
+      line-height:40px;
+      width:33.3%;
+      margin-bottom:10px;
+      position:relative;
+      @include transition(all,.3s);
+      @include border-radius(20px);
+      @media screen and (max-width:980px){
+        font-size:.15rem;
+        line-height:.4rem;
+      }
+      &:before{
+        $wh:9px;
+        content:'';
+        display:inline-block;
+        width:$wh;
+        height:$wh;
+        @include border-radius(50%);
+        background-color:lightcoral;
+        margin:0 10px;
+        vertical-align:middle;
+        @media screen and (max-width:980px){
+          width:.09rem;
+          height:.09rem;
+          margin:0 .1rem;
+        }
+      }
+      &:after{
+        content:'';
+        display:block;
+        position:absolute;
+        bottom:0;
+        left:0;
+        @include border-radius(1px);
+        background-color:$secondaryColor;
+        width:100%;
+        transform:scaleX(0);
+        height:1px;
+        @include transition(all,.5s);
+      }
+      &.my-social-me1:before{
+        background-color:lightblue;
+      }
+      &.my-social-me2:before{
+        background-color:lightgreen;
+      }
+      &.my-social-me3:before{
+        background-color:orangered;
+      }
+      &.my-social-me4:before{
+        background-color:blue;
+      }
+      &.my-social-me5:before{
+        background-color:green;
+      }
+      &:hover{
+        //background:$secondaryColor;
+        //color:#fff;
+        &:before{
+          //background-color:#fff;
+        }
+        &:after{
+          transform:scaleX(1);
+        }
+      }
+    }
+  }
+  .my-post{
+    border-bottom:1px dotted #ccc;
+    font-size:0;
+    padding:20px 0;
+    @media screen and (max-width:980px){
+      padding:.2rem 0;
+    }
+    a{
+      display:inline-block;
+      width:(100%) / 3;
+      text-align:center;
+      strong{
+        font-size:17px;
+        color:#333;
+        font-weight:normal;
+        line-height:35px;
+      }
+      span{
+        font-size:12px;
+        color:#777;
+        text-transform:uppercase;
+      }
+    }
+  }
+  $btnColor:$secondaryColor;
+  .search-rss{
+    .my-rss,.search{
+      padding:20px 0;
+      text-align:center;
+      @media screen and (max-width:980px){
+        display:none;
+      }
+      a{
+        display:inline-block;
+        width:90%;
+        height:50px;
+        @include border-radius(25px);
+        border:1px solid #999;
+        text-transform:uppercase;
+        line-height:50px;
+        color:#999;
+        font-size:20px;
+        @include transition(all,.5s);
+        &:hover{
+          background-color:$btnColor;
+          color:#fff;
+          border-color:$btnColor;
+        }
+        &:visited{
+        }
+      }
+    }
+    .my-search{
+      @extend .my-rss;
+      @media screen and (max-width:980px){
+        display:block;
+        font-size:0;
+      }
+      a{
+        border-color:$btnColor;
+        color:$btnColor;
+      }
+    }
+    border-bottom:1px dotted #ccc;
+  }
+  .my-links{
+    margin-top:20px;
+    @media screen and (max-width:980px){
+      display:none;
+    }
+    li{
+      float:left;
+      width:(80%)/3;
+      margin-right:10%;
+      margin-bottom:10px;
+      &:nth-child(3n+3){
+        margin-right:0;
+      }
+      a{
+        display:block;
+        text-align:center;
+        img{
+          max-width:80%;
+          @include border-radius(50%);
+          border:1px solid $mainColor;
+          @include transition(all,.3s);
+        }
+        p{
+          height:30px;
+          line-height:30px;
+          color:#999;
+          margin-top:5px;
+          @include transition(all,.3s);
+        }
+        &:hover{
+          img{
+            @include box-shadow(0,0,5px,0,$mainColor);
+            transform:scale(1.1);
+          }
+          p{
+            color:$secondaryColor;
+          }
+        }
+      }
+    }
+  }
+  .ho-page{
+    .tie-hot-news span{
+      float:left;
+    }
+    .tie-hot-news .hot-news-list .hot-news .news-essay{
+      width:auto;
+    }
+  }
+}

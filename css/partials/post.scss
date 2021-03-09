@@ -1,0 +1,143 @@
+.post{
+  margin-top:20px;
+  padding:0 20px 52px 17px;
+  border-bottom:1px dotted #ccc;
+  @include box-shadow(0,1px,1px,0,rgba(255,255,255,.5));
+  margin-bottom:40px;
+  @include transition(all,.3s);
+  @include border-radius(0);
+  @media screen and (max-width:980px){
+    padding:0 0 .35rem;
+  }
+  &:hover{
+    //box-shadow:0 0 5px 0 #999;
+  }
+  h3{
+    font-size:36px;
+    font-weight:normal;
+    position:relative;
+    @media screen and (max-width:980px){
+      text-align:center;
+      font-size:.3rem;
+    }
+    a{
+      @include transition(all,.3s);
+      display:inline-block;
+      height:100%;
+      &:hover{
+        margin-left:5px;
+        color:$secondaryColor;
+        &:after{
+          width:15px;
+          left:-38px;
+        }
+      }
+      &:after{
+        content:'';
+        display:block;
+        width:5px;
+        height:100%;
+        background-color:$secondaryColor;
+        position:absolute;
+        top:0;
+        left:-38px;
+        @include transition(all,.3s);
+      }
+    }
+  }
+  p{
+    $co:#999;
+    padding:15px 0 0;
+    font-size:16px;
+    color:$co;
+    @media screen and (max-width:980px){
+      font-size:.15rem;
+      text-align:center;
+      margin-bottom:.2rem;
+    }
+    .tag{
+      a{
+        color:$mainColor;
+        @include transition(all,.3s);
+        &:hover{
+          color:$secondaryColor;
+        }
+      }
+    }
+  }
+  $postImageW:600px;
+  $postImageH:160px;
+  .post-image{
+    margin:35px 0;
+    max-width:$postImageW;
+    height:$postImageH;
+    overflow:hidden;
+    @include border-radius(5px);
+    position:relative;
+    @media screen and (max-width:980px){
+      font-size:0;
+      width:100%;
+      margin:.1rem 0;
+      height:auto;
+    }
+    img {
+      max-width: 110%;
+      width: $postImageW;
+      @include transition(all, 1s);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      margin: (-$postImageH/2) 0 0 (-$postImageW/2);
+      &:hover {
+        width: $postImageW+30px;
+        cursor: pointer;
+        margin: (-$postImageH/2-4px) 0 0 (-$postImageW/2-15px);
+      }
+      @media screen and (max-width:980px){
+        width:100%;
+        position:static;
+        top:0;
+        left:0;
+        margin:0;
+      }
+    }
+  }
+  .page-content{
+    font-size:14px;
+    color:#4c4c4c;
+    line-height:25px;
+    @media screen and (max-width:980px){
+      font-size:.14rem;
+      line-height:.25rem;
+    }
+  }
+  .post-readmore{
+    margin-top:28px;
+    @media screen and (max-width:980px){
+      margin-top:.28rem;
+      text-align:center;
+      font-size:0;
+      a{
+        font-size:.14rem;
+      }
+    }
+    a{
+      padding:7px 19px;
+      background-color:$mainColor;
+      @include border-radius(20px);
+      display:inline-block;
+      color:#fff;
+      font-size:14px;
+      @include transition(all,.3s);
+      &:hover{
+        background-color:$secondaryColor;
+      }
+      @media screen and (max-width:980px){
+        font-size:.14rem;
+        padding:.07rem .19rem;
+        @include border-radius(.2rem);
+      }
+    }
+  }
+}
+@import 'post/paging';
